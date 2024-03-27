@@ -36,4 +36,16 @@ ReloadWindowsList()
 
 F3::ActivateNextWindow()
 
+
+
+
 F10::Pause ; Pause l'application
+
+
+; Hotkey pour simuler le clic dans toutes les fenêtres Dofus
+!LButton::
+    MouseGetPos, xpos, ypos
+    For index, hwnd in windows {
+        ControlClick, x%xpos% y%ypos%, ahk_id %hwnd%, , LEFT,, NA
+    }
+    return
