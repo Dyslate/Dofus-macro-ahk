@@ -46,6 +46,9 @@ F10::Pause ; Pause l'application
 !LButton::
     MouseGetPos, xpos, ypos
     For index, hwnd in windows {
+        Random, delay, 250, 1000 ; Génère un nombre aléatoire entre 50 et 250
+        Sleep, delay ; Pause le script pour le nombre de millisecondes généré
         ControlClick, x%xpos% y%ypos%, ahk_id %hwnd%, , LEFT,, NA
     }
     return
+
